@@ -8,7 +8,6 @@ import { Person } from '../person/person.model';
 })
 export class TaskService {
   private tasks: Task[] = [];
-  private taskId: string = "";
 
   constructor() {}
 
@@ -22,21 +21,5 @@ export class TaskService {
 
   toggleCompletion(task: Task): void {
     task.completed = !task.completed;
-  }
-
-  addPersonToTask(taskId: string, person: Person): void {
-    const task = this.tasks.find((t) => t.id === taskId);
-    if (task) {
-      task.assignedPeople.push(person);
-    }
-  }
-
-  removePersonFromTask(taskId: string, person: Person): void {
-    const task = this.tasks.find((t) => t.id === taskId);
-    if (task) {
-      task.assignedPeople = task.assignedPeople.filter(
-        (p) => p.fullName !== person.fullName
-      );
-    }
   }
 }

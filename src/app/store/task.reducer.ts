@@ -28,37 +28,5 @@ export const TaskReducer = createReducer(
       ...state,
       tasks: updatedTasks,
     };
-  }),
-  on(TaskActions.addPersonToTask, (state, { taskId, person }) => {
-    const updatedTasks = state.tasks.map((task) => {
-      if (task.id === taskId) {
-        return {
-          ...task,
-          assignedPeople: [...task.assignedPeople, person],
-        };
-      }
-      return task;
-    });
-    return {
-      ...state,
-      tasks: updatedTasks,
-    };
-  }),
-  on(TaskActions.removePersonFromTask, (state, { taskId, person }) => {
-    const updatedTasks = state.tasks.map((task) => {
-      if (task.id === taskId) {
-        return {
-          ...task,
-          assignedPeople: task.assignedPeople.filter(
-            (p) => p.fullName !== person.fullName
-          ),
-        };
-      }
-      return task;
-    });
-    return {
-      ...state,
-      tasks: updatedTasks,
-    };
   })
 );

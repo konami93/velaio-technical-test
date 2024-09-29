@@ -15,17 +15,12 @@ export const toggleTaskCompletion = createAction(
   props<{ taskId: string }>()
 );
 
-export const addPersonToTask = createAction(
-  '[Task] Add Person To Task',
-  props<{ taskId: string; person: Person }>()
-);
+// export const addPersonToTask = createAction(
+//   '[Task] Add Person To Task',
+//   props<{ taskId: string; person: Person }>()
+// );
 
-export const removePersonFromTask = createAction(
-  '[Task] Remove Person From Task',
-  props<{ taskId: string; person: Person }>()
-);
-
-export const loadTasksFailed = createAction(
-  '[Task] Load Tasks Failed',
-  props<{ error: any }>()
-);
+// export const removePersonFromTask = createAction(
+//   '[Task] Remove Person From Task',
+//   props<{ taskId: string; person: Person }>()
+// );
