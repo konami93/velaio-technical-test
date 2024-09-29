@@ -1,0 +1,111 @@
+task-manager {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+
+  form {
+    width: 100%;
+    max-width: 500px;
+
+    input[type="text"],
+    input[type="date"],
+    input[type="number"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+
+      &:focus {
+        border-color: #007bff;
+        outline: none;
+      }
+    }
+
+    .assigned-people {
+      margin-top: 20px;
+    }
+  }
+
+  h2 {
+    margin-top: 30px;
+    color: #555;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 500px;
+
+    li {
+      background: #e9ecef;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+}
+
+.form-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+button:disabled {
+  background-color: #cccccc; /* Color de fondo cuando está deshabilitado */
+  color: #666666; /* Color del texto cuando está deshabilitado */
+  cursor: not-allowed; /* Cursor no permitido */
+}
+
+.remove-button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.form-inputs {
+  display: block;
+}
+
+.form-fields {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+}

@@ -1,0 +1,117 @@
+<div class="container">
+  <h1 style="margin-top: 0">Crear nueva tarea</h1>
+  <div class="divider"></div>
+  <form [formGroup]="taskForm" (ngSubmit)="createTask()">
+    <div class="form-inputs">
+      <div class="form-fields">
+        <label>Nombre de la tarea:</label>
+        <input formControlName="name" required />
+      </div>
+
+      <div class="form-fields">
+        <label>Fecha límite:</label>
+        <input formControlName="deadline" type="date" required />
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <div formArrayName="assignedPeople" class="assigned-people">
+      <h2>Personas Asociadas</h2>
+      <div class="form-inputs">
+        <div class="form-fields">
+          <label>Nombre Completo:</label>
+          <div style="display: block">
+            <input [formControl]="newPersonFullName" />
+            <div
+              *ngIf="
+                newPersonFullName &&
+                newPersonFullName.value &&
+                newPersonFullName.value.length < 5 &&
+                (newPersonFullName.touched || newPersonFullName.dirty)
+              "
+            >
+              <small class="error">Error: longitud mínima 5</small>
+            </div>
+          </div>
+        </div>
+        <div class="form-fields">
+          <label>Edad:</label>
+          <div style="display: block">
+            <input [formControl]="newPersonAge" type="number" />
+            <div>
+              <small class="error" *ngIf="newPersonAge.value && !isAgeValid()"
+                >Error: edad mínima 18</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="skills">
+        <label>Habilidades:</label>
+        <div class="form-fields" style="align-items: center;">
+          <input [formControl]="newSkill" />
+          <button
+            [disabled]="!newSkill.value"
+            type="button"
+            (click)="addSkill()"
+          >
+            Agregar Habilidad
+          </button>
+        </div>
+        <div style="display: flex; align-items: center">
+          {{ getSkillsString() }}
+          <button
+            *ngIf="skills.length != 0"
+            type="button"
+            (click)="removeSkills()"
+          >
+            Eliminar
+          </button>
+        </div>
+      </div>
+
+      <button
+        [disabled]="
+          !newPersonFullName.value ||
+          newPersonFullName.value.length < 5 ||
+          !newPersonAge.value ||
+          skills.length == 0
+        "
+        type="button"
+        (click)="addPerson()"
+      >
+        Agregar Persona
+      </button>
+      <ul>
+        <li
+          style="
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+          "
+          *ngFor="let person of assignedPeople.controls; let i = index"
+          [formGroupName]="i"
+        >
+          {{ person.get("fullName")?.value || "" }}
+          <button (click)="removePerson(i)">Eliminar persona</button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="divider"></div>
+
+    <div style="display: flex; justify-content: space-between">
+      <button [disabled]="!taskForm.valid" type="submit">Guardar Tarea</button>
+      <button (click)="navigateTo('')">Volver al Menu</button>
+    </div>
+  </form>
+
+  <!-- <h2>Tareas Creadas</h2>
+  <ul>
+    <li *ngFor="let task of tasks$ | async">
+      {{ task.name }} - {{ task.completed ? "Completada" : "Pendiente" }}
+      <button (click)="toggleTaskCompletion(task)">Toggle Completion</button>
+    </li>
+  </ul> -->
+</div>
