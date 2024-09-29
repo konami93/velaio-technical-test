@@ -1,7 +1,7 @@
 import { Person } from '../person/person.model';
 
 export interface Task {
-  id: number;
+  id: string;
   name: string;
   deadline: Date;
   completed: boolean;

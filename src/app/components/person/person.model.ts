@@ -5,5 +5,6 @@ export interface Person {
 }
 
 export interface Skill {
+  id: string;
   name: string;
 }
