@@ -1,0 +1,59 @@
+.filters {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+}
+
+.button.active {
+  background-color: #0056b3; /* Color de fondo cuando está activo */
+}
+
+button:disabled {
+  background-color: #cccccc; /* Color de fondo cuando está deshabilitado */
+  color: #666666; /* Color del texto cuando está deshabilitado */
+  cursor: not-allowed; /* Cursor no permitido */
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+
+  li {
+    background: #e9ecef;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 4px;
+  }
+}
+
+.task-list {
+  max-height: 400px; /* Altura máxima del listado */
+  overflow-y: auto; /* Habilita el desplazamiento vertical */
+  border: 1px solid #ccc; /* Opcional: agrega un borde para mayor claridad */
+  padding: 10px; /* Opcional: agrega un poco de espacio interno */
+  margin-bottom: 20px; /* Espacio inferior para separar del siguiente elemento */
+}
+
+.task-body {
+  margin-left: 25px;
+}

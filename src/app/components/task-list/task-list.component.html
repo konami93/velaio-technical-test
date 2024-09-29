@@ -1,0 +1,70 @@
+<div class="container">
+  <h1 style="margin-top: 0">Lista de Tareas</h1>
+
+  <div class="divider"></div>
+
+  <div class="filters">
+    <h3>Filtros:</h3>
+    <button
+      class="button"
+      [ngClass]="{ active: filter === 'all' }"
+      (click)="setFilter('all')"
+    >
+      Todas
+    </button>
+    <button
+      class="button"
+      [ngClass]="{ active: filter === 'completed' }"
+      (click)="setFilter('completed')"
+    >
+      Completadas
+    </button>
+    <button
+      class="button"
+      [ngClass]="{ active: filter === 'pending' }"
+      (click)="setFilter('pending')"
+    >
+      Pendientes
+    </button>
+  </div>
+
+  <div class="divider"></div>
+
+  <div *ngIf="(filteredTasks$ | async)?.length !== 0" class="task-list">
+    <h3>Tareas:</h3>
+    <ul>
+      <li *ngFor="let task of filteredTasks$ | async; let i = index">
+        <div class="task-data">
+          <div class="task-title">
+            <input
+              type="checkbox"
+              [checked]="task.completed"
+              (change)="toggleTaskCompletion(task)"
+            />
+            {{ i + 1 }}. {{ task.name }} - {{ task.deadline }} -
+            {{ task.completed ? "Completada" : "Pendiente" }}
+          </div>
+          <div class="task-body">
+            <h4 style="margin-bottom: 0">Personas Asociadas:</h4>
+            <ul>
+              <li *ngFor="let person of task.assignedPeople">
+                {{ person.fullName }} ({{ person.age }}) <br />
+                Habilidades: {{ person.skills }} <br />
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div *ngIf="(filteredTasks$ | async)?.length === 0" class="task-list">
+    <h3 style="display: flex">No existen tareas registradas</h3>
+  </div>
+
+  <div class="divider"></div>
+
+  <div>
+    <button (click)="navigateTo('')">Volver al Menu</button>
+  </div>
+</div>
