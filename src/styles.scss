@@ -26,14 +26,14 @@ h2 {
 }
 
 .divider {
-  height: 2px; /* Altura del divisor */
-  background-color: #ccc; /* Color del divisor */
-  margin: 20px 0; /* Espacio arriba y abajo del divisor */
-  border: none; /* Elimina el borde por defecto */
+  height: 2px;
+  background-color: #ccc;
+  margin: 20px 0;
+  border: none;
 }
 
 @media (max-width: 600px) {
   .container {
-    max-height: 50vh; /* Ajusta la altura máxima en pantallas pequeñas */
+    max-height: 50vh;
   }
 }

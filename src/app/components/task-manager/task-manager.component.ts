@@ -14,7 +14,7 @@ import { Observable } from 'rxjs';
 import { TaskState } from 'src/app/store/task.reducer';
 import * as TaskActions from '../../store/task.actions';
 import { v4 as uuidv4 } from 'uuid';
-import { Person, Skill } from '../person/person.model';
+import { Skill } from '../person/person.model';
 import { Router } from '@angular/router';
 
 function assignedPeopleValidator(): ValidatorFn {
@@ -73,7 +73,7 @@ export class TaskManagerComponent {
 
       this.store.dispatch(TaskActions.addTask({ task: newTask }));
       this.taskForm.reset();
-      this.assignedPeople.clear(); 
+      this.assignedPeople.clear();
     } else {
       console.warn('Form is invalid');
     }
