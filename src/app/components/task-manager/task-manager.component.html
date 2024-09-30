@@ -1,11 +1,13 @@
 <div class="container">
   <h1 style="margin: 0">Crear nueva tarea</h1>
+
   <div class="divider"></div>
+
   <form [formGroup]="taskForm" (ngSubmit)="createTask()">
     <div class="form-inputs">
       <div class="form-fields" style="margin-top: 0">
         <label>Nombre de la tarea:</label>
-        <input formControlName="name" required />
+        <input type="text" formControlName="name" required />
       </div>
 
       <div class="form-fields">
@@ -22,7 +24,7 @@
         <div class="form-fields">
           <label>Nombre Completo:</label>
           <div style="display: block">
-            <input [formControl]="newPersonFullName" />
+            <input type="text" [formControl]="newPersonFullName" />
             <div
               *ngIf="
                 newPersonFullName &&
@@ -50,7 +52,7 @@
         <div style="margin-left: 20px">
           <label>Habilidades:</label>
           <div class="skills">
-            <input [formControl]="newSkill" />
+            <input type="text" [formControl]="newSkill" />
             <button
               [disabled]="!newSkill.value"
               type="button"
@@ -79,6 +81,7 @@
           !newPersonAge.value ||
           skills.length == 0
         "
+        class="add-button"
         type="button"
         (click)="addPerson()"
       >
