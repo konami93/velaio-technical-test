@@ -1,9 +1,9 @@
 <div class="container">
-  <h1 style="margin-top: 0">Crear nueva tarea</h1>
+  <h1 style="margin: 0">Crear nueva tarea</h1>
   <div class="divider"></div>
   <form [formGroup]="taskForm" (ngSubmit)="createTask()">
     <div class="form-inputs">
-      <div class="form-fields">
+      <div class="form-fields" style="margin-top: 0">
         <label>Nombre de la tarea:</label>
         <input formControlName="name" required />
       </div>
@@ -46,28 +46,29 @@
             </div>
           </div>
         </div>
-      </div>
-      <div class="skills">
-        <label>Habilidades:</label>
-        <div class="form-fields" style="align-items: center">
-          <input [formControl]="newSkill" />
-          <button
-            [disabled]="!newSkill.value"
-            type="button"
-            (click)="addSkill()"
-          >
-            Agregar Habilidad
-          </button>
-        </div>
-        <div style="display: flex; align-items: center">
-          {{ getSkillsString() }}
-          <button
-            *ngIf="skills.length != 0"
-            type="button"
-            (click)="removeSkills()"
-          >
-            Eliminar
-          </button>
+
+        <div style="margin-left: 20px">
+          <label>Habilidades:</label>
+          <div class="skills">
+            <input [formControl]="newSkill" />
+            <button
+              [disabled]="!newSkill.value"
+              type="button"
+              (click)="addSkill()"
+            >
+              Agregar Habilidad
+            </button>
+          </div>
+          <div style="display: flex; align-items: center">
+            {{ getSkillsString() }}
+            <button
+              *ngIf="skills.length != 0"
+              type="button"
+              (click)="removeSkills()"
+            >
+              Eliminar
+            </button>
+          </div>
         </div>
       </div>
 
@@ -101,7 +102,7 @@
 
     <div class="divider"></div>
 
-    <div style="display: flex; justify-content: space-between">
+    <div class="form-buttons">
       <button [disabled]="!taskForm.valid" type="submit">Guardar Tarea</button>
       <button (click)="navigateTo('')">Volver al Menu</button>
     </div>
