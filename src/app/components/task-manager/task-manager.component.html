@@ -64,10 +64,7 @@
           </div>
         </div>
 
-        <ul
-          *ngIf="skills.length"
-          style="margin-block-start: 6px; padding-inline: 20px"
-        >
+        <ul *ngIf="skills.length">
           <li
             *ngFor="let skill of skills; let i = index; trackBy: trackById"
             class="skills__items"
@@ -108,11 +105,7 @@
 
       <ul>
         <li
-          style="
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          "
+          class="assigned-people__items"
           *ngFor="let person of assignedPeople.controls; let i = index"
           [formGroupName]="i"
         >

@@ -26,6 +26,22 @@
   font-size: 12px;
 }
 
+.assigned-people {
+  ul {
+    margin-block-start: 6px;
+    padding-inline: 20px;
+    max-height: 80px;
+    overflow-y: auto;
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+}
+
 .skills {
   display: flex;
   justify-content: space-between;
