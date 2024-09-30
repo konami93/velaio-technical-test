@@ -16,7 +16,6 @@ import { TaskListComponent } from './components/task-list/task-list.component';
 @NgModule({
   declarations: [
     AppComponent,
-    TaskManagerComponent,
     TaskListComponent,
     HomeComponent,
   ],
@@ -25,6 +24,7 @@ import { TaskListComponent } from './components/task-list/task-list.component';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    TaskManagerComponent,
     StoreModule.forRoot({ task: TaskReducer }),
     EffectsModule.forRoot([TaskEffects]),
     AppRoutingModule,

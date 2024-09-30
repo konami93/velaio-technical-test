@@ -8,6 +8,7 @@ import {
   FormControl,
   ValidatorFn,
   AbstractControl,
+  ReactiveFormsModule,
 } from '@angular/forms';
 import { Task } from '../task/task.model';
 import { Observable } from 'rxjs';
@@ -15,7 +16,8 @@ import { TaskState } from 'src/app/store/task.reducer';
 import * as TaskActions from '../../store/task.actions';
 import { v4 as uuidv4 } from 'uuid';
 import { Skill } from '../person/person.model';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 function assignedPeopleValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
@@ -26,8 +28,10 @@ function assignedPeopleValidator(): ValidatorFn {
 
 @Component({
   selector: 'app-task-manager',
+  standalone: true,
   templateUrl: './task-manager.component.html',
   styleUrls: ['./task-manager.component.scss'],
+  imports: [ReactiveFormsModule, RouterModule, CommonModule],
 })
 export class TaskManagerComponent {
   taskForm: FormGroup;
@@ -105,7 +109,7 @@ export class TaskManagerComponent {
           this.newPersonAge.value,
           [Validators.required, Validators.min(19)],
         ],
-        skills: [this.getSkillsString(), [Validators.required]],
+        skills: [this.skills, [Validators.required]],
       });
       this.assignedPeople.push(personForm);
       this.newPersonFullName.reset();
