@@ -13,13 +13,3 @@ export const toggleTaskCompletion = createAction(
   '[Task] Toggle Task Completion',
   props<{ taskId: string }>()
 );
-
-// export const addPersonToTask = createAction(
-//   '[Task] Add Person To Task',
-//   props<{ taskId: string; person: Person }>()
-// );
-
-// export const removePersonFromTask = createAction(
-//   '[Task] Remove Person From Task',
-//   props<{ taskId: string; person: Person }>()
-// );
