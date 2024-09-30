@@ -1,5 +1,5 @@
 import { createAction, props } from '@ngrx/store';
-import { Task } from '../components/task/task.model';
+import { Task } from '../models/task.model';
 
 export const loadTasks = createAction('[Task] Load Tasks');
 

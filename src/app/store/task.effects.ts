@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import * as TaskActions from './task.actions';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { catchError, map, mergeMap } from 'rxjs/operators';
-import { TaskService } from '../components/task/task.service';
+import { TaskService } from '../services/task.service';
 
 @Injectable()
 export class TaskEffects {
