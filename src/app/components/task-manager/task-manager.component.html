@@ -51,16 +51,6 @@
 
         <div style="margin-left: 20px">
           <label>Habilidades:</label>
-          <div class="skills">
-            <input type="text" [formControl]="newSkill" />
-            <button
-              [disabled]="!newSkill.value"
-              type="button"
-              (click)="addSkill()"
-            >
-              Agregar Habilidad
-            </button>
-          </div>
           <div style="display: flex; align-items: center">
             {{ getSkillsString() }}
             <button
@@ -69,6 +59,16 @@
               (click)="removeSkills()"
             >
               Eliminar
+            </button>
+          </div>
+          <div class="skills">
+            <input type="text" [formControl]="newSkill" />
+            <button
+              [disabled]="!newSkill.value"
+              type="button"
+              (click)="addSkill()"
+            >
+              Agregar Habilidad
             </button>
           </div>
         </div>
