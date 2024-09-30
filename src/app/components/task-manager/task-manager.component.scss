@@ -53,8 +53,7 @@ task-manager {
 
 .form-buttons {
   display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
 .form-inputs {
@@ -70,4 +69,24 @@ task-manager {
 .error {
   color: red;
   font-size: 12px;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media (max-width: 600px) {
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .form-fields {
+    flex-direction: column;
+  }
+
+  .skills {
+    flex-direction: column;
+  }
 }

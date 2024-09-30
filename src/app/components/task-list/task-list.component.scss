@@ -7,7 +7,7 @@
   background-color: #0056b3;
 }
 
-h2 {
+h3 {
   color: #333;
   margin-bottom: 20px;
 }
@@ -25,13 +25,18 @@ ul {
 }
 
 .task-list {
-  max-height: 400px;
+  max-height: 300px;
   overflow-y: auto;
   border: 1px solid #ccc;
   padding: 10px;
-  margin-bottom: 20px;
 }
 
 .task-body {
   margin-left: 25px;
+}
+
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+  }
 }
