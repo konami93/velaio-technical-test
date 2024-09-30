@@ -74,19 +74,21 @@
         </div>
       </div>
 
-      <button
-        [disabled]="
-          !newPersonFullName.value ||
-          newPersonFullName.value.length < 5 ||
-          !newPersonAge.value ||
-          skills.length == 0
-        "
-        class="add-button"
-        type="button"
-        (click)="addPerson()"
-      >
-        Agregar Persona
-      </button>
+      <div class="add-button">
+        <button
+          [disabled]="
+            !newPersonFullName.value ||
+            newPersonFullName.value.length < 5 ||
+            !newPersonAge.value ||
+            skills.length == 0
+          "
+          type="button"
+          (click)="addPerson()"
+        >
+          Agregar Persona
+        </button>
+      </div>
+
       <ul>
         <li
           style="
@@ -98,7 +100,7 @@
           [formGroupName]="i"
         >
           {{ person.get("fullName")?.value || "" }}
-          <button (click)="removePerson(i)">Eliminar persona</button>
+          <button (click)="removePerson(i)">Eliminar</button>
         </li>
       </ul>
     </div>
