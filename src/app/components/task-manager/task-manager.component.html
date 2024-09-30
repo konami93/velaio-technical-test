@@ -19,7 +19,7 @@
     <div class="divider"></div>
 
     <div formArrayName="assignedPeople" class="assigned-people">
-      <h2>Personas Asociadas</h2>
+      <h3>Personas Asociadas</h3>
 
       <div class="form-inputs form-inputs__sub-form">
         <div class="form-fields">
@@ -99,6 +99,7 @@
             skills.length == 0
           "
           type="button"
+          style="margin-bottom: 0"
           (click)="addPerson()"
         >
           Agregar Persona
@@ -134,8 +135,10 @@
     <div class="divider"></div>
 
     <div class="form-buttons">
-      <button [disabled]="!taskForm.valid" type="submit">Guardar Tarea</button>
-      <button (click)="navigateTo('')">Volver al Menu</button>
+      <button style="margin: 0" [disabled]="!taskForm.valid" type="submit">
+        Guardar Tarea
+      </button>
+      <button style="margin: 0" (click)="navigateTo('')">Volver al Menu</button>
     </div>
   </form>
 </div>
