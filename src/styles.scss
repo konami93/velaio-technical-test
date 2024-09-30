@@ -75,12 +75,13 @@ button {
 
 @media (max-width: 768px) {
   .container {
-    width: 90%;
+    width: auto;
     padding: 10px;
   }
 
   .home-container {
     width: auto;
+    height: auto;
     padding: 10px;
     margin: 0 auto;
   }
@@ -92,13 +93,15 @@ button {
 
 @media (max-width: 600px) {
   .container {
-    max-height: 50vh;
-    width: 90%;
+    width: auto;
     padding: 10px;
   }
 
   .home-container {
-    max-height: 50vh;
+    width: auto;
+    height: auto;
+    padding: 10px;
+    margin: 0 auto;
   }
 
   .button {

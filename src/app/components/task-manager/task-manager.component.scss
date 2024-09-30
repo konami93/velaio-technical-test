@@ -1,56 +1,3 @@
-task-manager {
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-
-  form {
-    width: 100%;
-    max-width: 500px;
-
-    input[type="text"],
-    input[type="date"],
-    input[type="number"] {
-      display: block;
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 10px;
-      border: 1px solid #ddd;
-      border-radius: 4px;
-
-      &:focus {
-        border-color: #007bff;
-        outline: none;
-      }
-    }
-
-    .assigned-people {
-      margin-top: 20px;
-    }
-  }
-
-  h2 {
-    margin-top: 30px;
-    color: #555;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-    max-width: 500px;
-
-    li {
-      background: #e9ecef;
-      padding: 15px;
-      margin: 10px 0;
-      border-radius: 4px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-  }
-}
-
 .form-buttons {
   display: flex;
   justify-content: space-between;
@@ -63,6 +10,7 @@ task-manager {
 .form-fields {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin: 20px;
 }
 
@@ -77,6 +25,20 @@ task-manager {
   align-items: center;
 }
 
+input {
+  display: block;
+  width: auto;
+  height: 8px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+
+  &:focus {
+    border-color: #007bff;
+    outline: none;
+  }
+}
+
 @media (max-width: 600px) {
   .form-buttons {
     flex-direction: column;
@@ -84,6 +46,12 @@ task-manager {
 
   .form-fields {
     flex-direction: column;
+  }
+
+  .add-button {
+    flex-direction: column !important;
+    display: grid;
+    align-items: center !important;
   }
 
   .skills {
