@@ -5,6 +5,10 @@
 
 .form-inputs {
   display: block;
+  &__sub-form {
+    padding: 5px;
+    background-color: #e0e0e0;
+  }
 }
 
 .form-fields {
@@ -23,6 +27,12 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  &__items {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+  }
 }
 
 input {

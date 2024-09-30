@@ -1,23 +1,25 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { Store } from '@ngrx/store';
 import {
-  FormBuilder,
-  FormGroup,
-  FormArray,
-  Validators,
-  FormControl,
-  ValidatorFn,
   AbstractControl,
+  FormArray,
+  FormBuilder,
+  FormControl,
+  FormGroup,
   ReactiveFormsModule,
+  ValidatorFn,
+  Validators,
 } from '@angular/forms';
-import { Task } from '../task/task.model';
+import { Router, RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import { TaskState } from 'src/app/store/task.reducer';
-import * as TaskActions from '../../store/task.actions';
 import { v4 as uuidv4 } from 'uuid';
-import { Skill } from '../person/person.model';
-import { Router, RouterModule } from '@angular/router';
-import { CommonModule } from '@angular/common';
+import * as TaskActions from '../../store/task.actions';
+import { Skill } from 'src/app/models/person.model';
+import { Task } from 'src/app/models/task.model';
+import { bootstrapTrash } from '@ng-icons/bootstrap-icons';
+import { NgIconComponent, provideIcons } from '@ng-icons/core';
 
 function assignedPeopleValidator(): ValidatorFn {
   return (control: AbstractControl): { [key: string]: any } | null => {
@@ -31,7 +33,8 @@ function assignedPeopleValidator(): ValidatorFn {
   standalone: true,
   templateUrl: './task-manager.component.html',
   styleUrls: ['./task-manager.component.scss'],
-  imports: [ReactiveFormsModule, RouterModule, CommonModule],
+  imports: [ReactiveFormsModule, RouterModule, CommonModule, NgIconComponent],
+  viewProviders: [provideIcons({ bootstrapTrash })],
 })
 export class TaskManagerComponent {
   taskForm: FormGroup;
@@ -109,7 +112,7 @@ export class TaskManagerComponent {
           this.newPersonAge.value,
           [Validators.required, Validators.min(19)],
         ],
-        skills: [this.skills, [Validators.required]],
+        skills: [this.getSkillsString(), [Validators.required]],
       });
       this.assignedPeople.push(personForm);
       this.newPersonFullName.reset();
@@ -129,16 +132,12 @@ export class TaskManagerComponent {
         name: this.newSkill.value,
       };
       this.skills.push(skill);
+      this.newSkill.reset();
     }
-    this.newSkill.reset();
   }
 
-  removeSkills() {
-    this.skills = [];
-  }
-
-  getSkillsString(): string {
-    return this.skills.map((skill) => skill.name).join(', ');
+  removeSkills(id: string) {
+    this.skills = this.skills.filter((item) => item.id !== id);
   }
 
   isAgeValid(): boolean {
@@ -146,5 +145,13 @@ export class TaskManagerComponent {
     return (
       ageValue !== null && ageValue !== undefined && parseInt(ageValue) >= 18
     );
+  }
+
+  trackById(_index: number, item: Skill): string {
+    return item.id;
+  }
+
+  getSkillsString(): string {
+    return this.skills.map((skill) => skill.name).join(', ');
   }
 }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { Task } from '../task/task.model';
+import { Task } from '../../models/task.model';
 import { TaskState } from 'src/app/store/task.reducer';
 import { Router } from '@angular/router';
 import * as TaskActions from '../../store/task.actions';
